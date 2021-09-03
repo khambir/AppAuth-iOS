@@ -41,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 #endif
 
+NS_EXTENSION_UNAVAILABLE("OIDExternalUserAgentIOS not supported in extensions (deprecated use of UIApplication shared)")
 @implementation OIDExternalUserAgentIOS {
   UIViewController *_presentingViewController;
 
@@ -162,6 +163,10 @@ NS_ASSUME_NONNULL_BEGIN
       [_presentingViewController presentViewController:safariVC animated:YES completion:nil];
       openedUserAgent = YES;
     }
+  }
+  // iOS 8 and earlier, use mobile Safari
+  if (!openedUserAgent){
+    openedUserAgent = [[UIApplication sharedApplication] openURL:requestURL];
   }
 
   if (!openedUserAgent) {

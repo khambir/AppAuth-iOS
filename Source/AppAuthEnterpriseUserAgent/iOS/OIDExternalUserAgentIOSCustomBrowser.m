@@ -33,6 +33,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_EXTENSION_UNAVAILABLE("OIDExternalUserAgentIOSCustomBrowser not supported in extensions (deprecated use of UIApplication shared)")
 @implementation OIDExternalUserAgentIOSCustomBrowser
 
 + (instancetype)CustomBrowserChrome {
